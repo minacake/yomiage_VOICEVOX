@@ -85,9 +85,9 @@ class room_information():
     # 人数カウント+自動退出
     async def count_number_of_people(self, text_channel, voice_channel):
         user_count = sum(1 for member in voice_channel.members if not member.bot)
-        await text_channel.send('>現在' + str(user_count) + '人接続しているのだ')
+        await text_channel.send('現在' + str(user_count) + '人接続しているのだ')
         if(user_count == 0 and self.flag_valid_dict[command_auto_leave]):
-            await text_channel.send('>誰もいなくなったみたいだから僕もそろそろ抜けるのだ')
+            await text_channel.send('誰もいなくなったみたいだから僕もそろそろ抜けるのだ')
             await voice_channel.guild.voice_client.disconnect()
             # 切断に成功したことの報告
             print(self.voice_room_name + "から切断しました")
